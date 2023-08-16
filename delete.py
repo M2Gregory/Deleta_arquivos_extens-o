@@ -48,7 +48,7 @@ if __name__ == "__main__":
     sg.theme("DarkGrey13")
 
     layout = [
-        [sg.Button("Selecione o Diretório", size=(18, 1), button_color=("white", "#202020"), font=("bold", 14))],
+        [sg.Button("Selecionar Diretório", size=(18, 1), button_color=("white", "#202020"), font=("bold", 14))],
         [sg.InputText(key="-CAMINHO-", size=(70, 1), background_color="#252526", text_color="white", border_width=1,
                       tooltip=('''- Use o botão para escolher o diretório.
 - Pode digitar o caminho ou colar usando o 'Ctrl+v'.'''))],
@@ -61,7 +61,7 @@ if __name__ == "__main__":
                    key="-OUTPUT-")]
     ]
 
-    window = sg.Window("Deletar Arquivos", layout, finalize=True)
+    window = sg.Window("Deleta Arquivos", layout, finalize=True)
 
     while True:
         event, values = window.read()
@@ -71,7 +71,7 @@ if __name__ == "__main__":
             caminho = sg.popup_get_folder("Selecione o diretório", no_window=True, keep_on_top=True)
             if caminho:
                 window["-CAMINHO-"].update(caminho)
-        elif event == "Deleta Arquivos":
+        elif event == "Deletar Arquivos":
             caminho = values["-CAMINHO-"]
             extensoes = values["-EXTENSAO-"].replace(",", " ").split()
             deletar_arquivos(caminho, extensoes)
